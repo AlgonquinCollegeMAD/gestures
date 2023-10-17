@@ -1,6 +1,10 @@
 import SwiftUI
 
-struct TheThing: Identifiable {
+struct TheThing: Identifiable, Equatable {
+  static func == (lhs: TheThing, rhs: TheThing) -> Bool {
+    lhs.id == rhs.id
+  }
+  
   var id: String
   var circle: Circle
   var size: CGFloat
@@ -23,6 +27,9 @@ struct ContentView: View {
             .foregroundColor(index.color)
             .position(index.position)
             .frame(width: index.size, height: index.size)
+            .onTapGesture {
+              removeAll()
+            }
         }
       }
       .navigationTitle("Circles")
@@ -36,6 +43,10 @@ struct ContentView: View {
         }
       }
     }
+  }
+  
+  func removeAll(){
+    thingsOnScreen.removeAll()
   }
   
   func addCircle() {
