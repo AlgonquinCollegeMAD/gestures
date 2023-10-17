@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		105C65BE2ADF0823001A0239 /* GesturesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65BD2ADF0823001A0239 /* GesturesApp.swift */; };
-		105C65C02ADF0823001A0239 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65BF2ADF0823001A0239 /* ContentView.swift */; };
+		105C65C02ADF0823001A0239 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65BF2ADF0823001A0239 /* Canvas.swift */; };
 		105C65C22ADF0824001A0239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105C65C12ADF0824001A0239 /* Assets.xcassets */; };
 		105C65C62ADF0824001A0239 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 105C65C52ADF0824001A0239 /* Preview Assets.xcassets */; };
 		105C65D02ADF0824001A0239 /* GesturesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65CF2ADF0824001A0239 /* GesturesTests.swift */; };
 		105C65DA2ADF0824001A0239 /* GesturesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65D92ADF0824001A0239 /* GesturesUITests.swift */; };
 		105C65DC2ADF0824001A0239 /* GesturesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65DB2ADF0824001A0239 /* GesturesUITestsLaunchTests.swift */; };
+		105C65E92ADF359D001A0239 /* CanvasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65E82ADF359D001A0239 /* CanvasModel.swift */; };
+		105C65EB2ADF35D1001A0239 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65EA2ADF35D1001A0239 /* Thing.swift */; };
+		105C65ED2ADF361B001A0239 /* ThingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65EC2ADF361B001A0239 /* ThingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		105C65BA2ADF0823001A0239 /* Gestures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gestures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		105C65BD2ADF0823001A0239 /* GesturesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesApp.swift; sourceTree = "<group>"; };
-		105C65BF2ADF0823001A0239 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		105C65BF2ADF0823001A0239 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		105C65C12ADF0824001A0239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		105C65C32ADF0824001A0239 /* Gestures.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gestures.entitlements; sourceTree = "<group>"; };
 		105C65C52ADF0824001A0239 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +48,9 @@
 		105C65D52ADF0824001A0239 /* GesturesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GesturesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		105C65D92ADF0824001A0239 /* GesturesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesUITests.swift; sourceTree = "<group>"; };
 		105C65DB2ADF0824001A0239 /* GesturesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		105C65E82ADF359D001A0239 /* CanvasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasModel.swift; sourceTree = "<group>"; };
+		105C65EA2ADF35D1001A0239 /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		105C65EC2ADF361B001A0239 /* ThingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				105C65BD2ADF0823001A0239 /* GesturesApp.swift */,
-				105C65BF2ADF0823001A0239 /* ContentView.swift */,
+				105C65BF2ADF0823001A0239 /* Canvas.swift */,
+				105C65E82ADF359D001A0239 /* CanvasModel.swift */,
+				105C65EA2ADF35D1001A0239 /* Thing.swift */,
+				105C65EC2ADF361B001A0239 /* ThingView.swift */,
 				105C65C12ADF0824001A0239 /* Assets.xcassets */,
 				105C65C32ADF0824001A0239 /* Gestures.entitlements */,
 				105C65C42ADF0824001A0239 /* Preview Content */,
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105C65C02ADF0823001A0239 /* ContentView.swift in Sources */,
+				105C65EB2ADF35D1001A0239 /* Thing.swift in Sources */,
+				105C65C02ADF0823001A0239 /* Canvas.swift in Sources */,
 				105C65BE2ADF0823001A0239 /* GesturesApp.swift in Sources */,
+				105C65ED2ADF361B001A0239 /* ThingView.swift in Sources */,
+				105C65E92ADF359D001A0239 /* CanvasModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
