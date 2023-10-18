@@ -19,6 +19,12 @@ class CanvasModel: ObservableObject {
     list.append(aThing)
   }
   
+  func bringToFront(_ index: Int) {
+    let thing = list[index]
+    list.remove(at: index)
+    list.append(thing)
+  }
+  
   func change(thing: inout Thing, color: () -> Color) {
     thing.color = color()
   }
