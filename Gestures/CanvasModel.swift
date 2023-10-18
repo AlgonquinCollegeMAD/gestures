@@ -4,7 +4,7 @@ class CanvasModel: ObservableObject {
   
   @Published var list = [Thing]()
   
-  func removeAll() {
+  func removeAll(){
     list.removeAll()
   }
   
@@ -19,12 +19,12 @@ class CanvasModel: ObservableObject {
     list.append(aThing)
   }
   
-  func getNewColor() -> Color {
-    return Color(
-      red: Double.random(in: 0...1),
-      green: Double.random(in: 0...1),
-      blue: Double.random(in: 0...1)
-    )
+  func change(thing: inout Thing, color: () -> Color) {
+    thing.color = color()
+  }
+  
+  func change(thing: inout Thing, newPosition: CGPoint) {
+    thing.position = newPosition
   }
   
   func randomPoint() -> CGPoint {
