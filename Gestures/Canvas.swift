@@ -10,11 +10,6 @@ struct Canvas: View {
         ForEach(model.list.indices, id: \.self) { index in
           ThingView(thing: $model.list[index])
             .gesture(
-              TapGesture(count: 2).onEnded({ _ in
-                isPresentingConfirmDelete = true
-              })
-            )
-            .gesture(
               TapGesture(count: 1).onEnded({ _ in
                 model.change(thing: &model.list[index]) {
                   Color(
@@ -44,6 +39,12 @@ struct Canvas: View {
             model.add()
           } label: {
             Image(systemName: "plus.circle")
+          }
+          
+          Button {
+            isPresentingConfirmDelete = true
+          } label: {
+            Image(systemName: "minus.circle")
           }
         }
       }
