@@ -2,20 +2,39 @@ import SwiftUI
 
 struct Canvas: View {
   @ObservedObject var model = CanvasModel()
+  @State private var isPresentingConfirmDelete = false
   
   var body: some View {
     NavigationStack {
       ZStack {
         ForEach(model.list.indices, id: \.self) { index in
           ThingView(thing: $model.list[index])
-            .onTapGesture(count: 2) {
-              model.list[index].color = model.getNewColor()
-            }
             .gesture(
-              DragGesture().onChanged({ value in
-                model.list[index].position = value.location
+              TapGesture(count: 2).onEnded({ _ in
+                isPresentingConfirmDelete = true
               })
             )
+            .gesture(
+              TapGesture(count: 1).onEnded({ _ in
+                model.change(thing: &model.list[index]) {
+                  Color(
+                    red: Double.random(in: 0...1),
+                    green: Double.random(in: 0...1),
+                    blue: Double.random(in: 0...1)
+                  )
+                }
+              })
+            )
+            .gesture(
+              DragGesture().onChanged({ value in
+                model.change(thing: &model.list[index], newPosition: value.location)
+              })
+            )
+            .confirmationDialog("Are you sure?", isPresented: $isPresentingConfirmDelete) {
+              Button("Delete all items", role: .destructive) {
+                model.removeAll()
+              }
+            }
         }
       }
       .navigationTitle("Circles")
@@ -30,8 +49,4 @@ struct Canvas: View {
       }
     }
   }
-}
-
-#Preview {
-  Canvas()
 }
