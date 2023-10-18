@@ -10,6 +10,11 @@ struct Canvas: View {
         ForEach(model.list.indices, id: \.self) { index in
           ThingView(thing: $model.list[index])
             .gesture(
+              TapGesture(count: 2).onEnded({ _ in
+                model.bringToFront(index)
+              })
+            )
+            .gesture(
               TapGesture(count: 1).onEnded({ _ in
                 model.change(thing: &model.list[index]) {
                   Color(
