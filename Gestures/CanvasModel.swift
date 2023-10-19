@@ -8,10 +8,21 @@ class CanvasModel: ObservableObject {
     list.removeAll()
   }
   
-  func add() {
+  func addCircle() {
     let aThing = Thing(
       id: UUID().uuidString,
-      circle: Circle(),
+      shape: .circle(Circle()),
+      size: CGFloat.random(in: 50...150),
+      position: randomPoint()
+    )
+    
+    list.append(aThing)
+  }
+  
+  func addRectangle() {
+    let aThing = Thing(
+      id: UUID().uuidString,
+      shape: .roundedRect(RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))),
       size: CGFloat.random(in: 50...150),
       position: randomPoint()
     )

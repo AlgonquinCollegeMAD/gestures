@@ -1,12 +1,17 @@
 import SwiftUI
 
+enum Shape {
+    case circle(Circle)
+    case roundedRect(RoundedRectangle)
+}
+
 struct Thing: Identifiable, Equatable {
   static func == (lhs: Thing, rhs: Thing) -> Bool {
     lhs.id == rhs.id
   }
   
   var id: String
-  var circle: Circle
+  var shape: Shape
   var size: CGFloat
   var position: CGPoint
   var color = Color(
