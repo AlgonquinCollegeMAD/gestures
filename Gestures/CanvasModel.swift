@@ -4,39 +4,20 @@ class CanvasModel: ObservableObject {
   
   @Published var list = [Thing]()
   
-  func eraseAll(){
+  func eraseAllShapes(){
     list.removeAll()
   }
   
-  func eraseCircles() {
+  func eraseShapesOfType(_ shape: Shape) {
     list.removeAll { thing in
-      if case Shape.circle(_) = thing.shape { return true }
-      return false
+      thing.shape == shape
     }
   }
   
-  func eraseSquares() {
-    list.removeAll { thing in
-      if case Shape.roundedRect(_) = thing.shape { return true }
-      return false
-    }
-  }
-  
-  func drawCircle() {
+  func drawShape(_ shape: Shape) {
     let aThing = Thing(
       id: UUID().uuidString,
-      shape: .circle(),
-      size: CGFloat.random(in: 50...150),
-      position: randomPoint()
-    )
-    
-    list.append(aThing)
-  }
-  
-  func drawRectangle() {
-    let aThing = Thing(
-      id: UUID().uuidString,
-      shape: .roundedRect(),
+      shape: shape,
       size: CGFloat.random(in: 50...150),
       position: randomPoint()
     )

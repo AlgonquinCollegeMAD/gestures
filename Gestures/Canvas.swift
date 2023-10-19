@@ -33,13 +33,13 @@ struct Canvas: View {
             .confirmationDialog("Are you sure you want erase things?", isPresented: $isPresentingConfirmDelete) {
               VStack {
                 Button("Erase all squares", role: .destructive) {
-                  model.eraseSquares()
+                  model.eraseShapesOfType(.roundedRect())
                 }
                 Button("Erase all circles", role: .destructive) {
-                  model.eraseCircles()
+                  model.eraseShapesOfType(.circle())
                 }
                 Button("Erase all shapes", role: .destructive) {
-                  model.eraseAll()
+                  model.eraseAllShapes()
                 }
               }
             }
@@ -50,14 +50,14 @@ struct Canvas: View {
         
         ToolbarItemGroup(placement: .topBarLeading) {
           Button {
-            model.drawCircle()
+            model.drawShape(.circle())
           } label: {
             Image(systemName: "plus.circle.fill")
               .foregroundColor(.green)
           }
           
           Button {
-            model.drawRectangle()
+            model.drawShape(.roundedRect())
           } label: {
             Image(systemName: "plus.square.fill")
               .foregroundColor(.green)
