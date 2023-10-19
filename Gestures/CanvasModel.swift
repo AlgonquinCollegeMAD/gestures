@@ -59,8 +59,8 @@ class CanvasModel: ObservableObject {
   }
   
   func randomPoint() -> CGPoint {
-     let x = CGFloat.random(in: 0...300)
-     let y = CGFloat.random(in: 0...300)
+    let x = CGFloat.random(in: 0...UIScreen.main.bounds.width)
+    let y = CGFloat.random(in: 0...UIScreen.main.bounds.height)
      return CGPoint(x: x, y: y)
   }
 }
