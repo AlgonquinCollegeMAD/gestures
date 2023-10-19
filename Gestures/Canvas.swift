@@ -2,7 +2,8 @@ import SwiftUI
 
 struct Canvas: View {
   @ObservedObject var model = CanvasModel()
-  @State private var isPresentingConfirmDelete = false
+  @State private var isPresentingConfirmDeleteCircles = false
+  @State private var isPresentingConfirmDeleteRectangles = false
   
   var body: some View {
     NavigationStack {
@@ -30,8 +31,13 @@ struct Canvas: View {
                 model.change(thing: &model.list[index], newPosition: value.location)
               })
             )
-            .confirmationDialog("Are you sure?", isPresented: $isPresentingConfirmDelete) {
-              Button("Delete all items", role: .destructive) {
+            .confirmationDialog("Are you sure you want to remove all circles?", isPresented: $isPresentingConfirmDeleteCircles) {
+              Button("Remove all circles", role: .destructive) {
+                model.removeAll()
+              }
+            }
+            .confirmationDialog("Are you sure wyopu want to remove all squares?", isPresented: $isPresentingConfirmDeleteRectangles) {
+              Button("Remove all squares", role: .destructive) {
                 model.removeAll()
               }
             }
@@ -48,7 +54,7 @@ struct Canvas: View {
           }
           
           Button {
-            isPresentingConfirmDelete = true
+            isPresentingConfirmDeleteCircles = true
           } label: {
             Image(systemName: "minus.circle")
           }
@@ -62,7 +68,7 @@ struct Canvas: View {
           }
           
           Button {
-            isPresentingConfirmDelete = true
+            isPresentingConfirmDeleteRectangles = true
           } label: {
             Image(systemName: "minus.square")
           }
