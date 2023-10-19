@@ -33,12 +33,12 @@ struct Canvas: View {
             )
             .confirmationDialog("Are you sure you want to remove all circles?", isPresented: $isPresentingConfirmDeleteCircles) {
               Button("Remove all circles", role: .destructive) {
-                model.removeAll()
+                model.removeCircles()
               }
             }
             .confirmationDialog("Are you sure wyopu want to remove all squares?", isPresented: $isPresentingConfirmDeleteRectangles) {
               Button("Remove all squares", role: .destructive) {
-                model.removeAll()
+                model.removeSquares()
               }
             }
         }
@@ -73,7 +73,6 @@ struct Canvas: View {
             Image(systemName: "minus.square")
           }
         }
-        
       }
     }
   }
