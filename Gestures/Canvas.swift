@@ -39,9 +39,10 @@ struct Canvas: View {
       }
       .navigationTitle("Circles")
       .toolbar{
+        
         ToolbarItemGroup(placement: .topBarTrailing) {
           Button {
-            model.add()
+            model.addCircle()
           } label: {
             Image(systemName: "plus.circle")
           }
@@ -52,6 +53,21 @@ struct Canvas: View {
             Image(systemName: "minus.circle")
           }
         }
+        
+        ToolbarItemGroup(placement: .topBarLeading) {
+          Button {
+            model.addRectangle()
+          } label: {
+            Image(systemName: "plus.square")
+          }
+          
+          Button {
+            isPresentingConfirmDelete = true
+          } label: {
+            Image(systemName: "minus.square")
+          }
+        }
+        
       }
     }
   }
