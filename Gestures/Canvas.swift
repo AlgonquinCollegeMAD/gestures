@@ -2,8 +2,7 @@ import SwiftUI
 
 struct Canvas: View {
   @ObservedObject var model = CanvasModel()
-  @State private var isPresentingConfirmDeleteCircles = false
-  @State private var isPresentingConfirmDeleteRectangles = false
+  @State private var isPresentingConfirmDelete = false
   
   var body: some View {
     NavigationStack {
@@ -31,14 +30,17 @@ struct Canvas: View {
                 model.change(thing: &model.list[index], newPosition: value.location)
               })
             )
-            .confirmationDialog("Are you sure you want to remove all circles?", isPresented: $isPresentingConfirmDeleteCircles) {
-              Button("Remove all circles", role: .destructive) {
-                model.removeCircles()
-              }
-            }
-            .confirmationDialog("Are you sure wyopu want to remove all squares?", isPresented: $isPresentingConfirmDeleteRectangles) {
-              Button("Remove all squares", role: .destructive) {
-                model.removeSquares()
+            .confirmationDialog("Are you sure you want erase things?", isPresented: $isPresentingConfirmDelete) {
+              VStack {
+                Button("Erase all squares", role: .destructive) {
+                  model.removeSquares()
+                }
+                Button("Erase all circles", role: .destructive) {
+                  model.removeCircles()
+                }
+                Button("Erase all shapes", role: .destructive) {
+                  model.removeAll()
+                }
               }
             }
         }
@@ -46,7 +48,7 @@ struct Canvas: View {
       .navigationTitle("Circles")
       .toolbar{
         
-        ToolbarItemGroup(placement: .topBarTrailing) {
+        ToolbarItemGroup(placement: .topBarLeading) {
           Button {
             model.addCircle()
           } label: {
@@ -54,23 +56,17 @@ struct Canvas: View {
           }
           
           Button {
-            isPresentingConfirmDeleteCircles = true
-          } label: {
-            Image(systemName: "minus.circle")
-          }
-        }
-        
-        ToolbarItemGroup(placement: .topBarLeading) {
-          Button {
             model.addRectangle()
           } label: {
             Image(systemName: "plus.square")
           }
-          
+        }
+        
+        ToolbarItemGroup(placement: .topBarTrailing) {
           Button {
-            isPresentingConfirmDeleteRectangles = true
+            isPresentingConfirmDelete = true
           } label: {
-            Image(systemName: "minus.square")
+            Image(systemName: "eraser")
           }
         }
       }
