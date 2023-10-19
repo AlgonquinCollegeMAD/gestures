@@ -52,13 +52,15 @@ struct Canvas: View {
           Button {
             model.drawCircle()
           } label: {
-            Image(systemName: "plus.circle")
+            Image(systemName: "plus.circle.fill")
+              .foregroundColor(.green)
           }
           
           Button {
             model.drawRectangle()
           } label: {
-            Image(systemName: "plus.square")
+            Image(systemName: "plus.square.fill")
+              .foregroundColor(.green)
           }
         }
         
@@ -66,8 +68,9 @@ struct Canvas: View {
           Button {
             isPresentingConfirmDelete = true
           } label: {
-            Image(systemName: "eraser")
+            Image(systemName: "eraser.fill").foregroundColor(.red)
           }
+          .symbolEffect(.bounce.up.byLayer, value: isPresentingConfirmDelete)
         }
       }
     }
