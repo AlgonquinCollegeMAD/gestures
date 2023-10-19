@@ -25,7 +25,7 @@ class CanvasModel: ObservableObject {
   func drawCircle() {
     let aThing = Thing(
       id: UUID().uuidString,
-      shape: .circle(Circle()),
+      shape: .circle(),
       size: CGFloat.random(in: 50...150),
       position: randomPoint()
     )
@@ -36,7 +36,7 @@ class CanvasModel: ObservableObject {
   func drawRectangle() {
     let aThing = Thing(
       id: UUID().uuidString,
-      shape: .roundedRect(RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))),
+      shape: .roundedRect(),
       size: CGFloat.random(in: 50...150),
       position: randomPoint()
     )
