@@ -8,6 +8,20 @@ class CanvasModel: ObservableObject {
     list.removeAll()
   }
   
+  func removeCircles() {
+    list.removeAll { thing in
+      if case Shape.circle(_) = thing.shape { return true }
+      return false
+    }
+  }
+  
+  func removeSquares() {
+    list.removeAll { thing in
+      if case Shape.roundedRect(_) = thing.shape { return true }
+      return false
+    }
+  }
+  
   func addCircle() {
     let aThing = Thing(
       id: UUID().uuidString,
