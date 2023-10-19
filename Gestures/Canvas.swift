@@ -45,7 +45,7 @@ struct Canvas: View {
             }
         }
       }
-      .navigationTitle("Circles")
+      .navigationTitle("Shapes")
       .toolbar{
         
         ToolbarItemGroup(placement: .topBarLeading) {
