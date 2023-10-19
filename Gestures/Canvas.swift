@@ -66,7 +66,9 @@ struct Canvas: View {
         
         ToolbarItemGroup(placement: .topBarTrailing) {
           Button {
-            isPresentingConfirmDelete = true
+            if model.list.count > 0 {
+              isPresentingConfirmDelete = true
+            }
           } label: {
             Image(systemName: "eraser.fill").foregroundColor(.red)
           }
