@@ -3,18 +3,26 @@ import SwiftUI
 class CanvasModel: ObservableObject {
   
   @Published var list = [Thing]()
+  private var backupList = [Thing]()
+  
+  func undo() {
+    list = backupList
+  }
   
   func eraseAllShapes(){
+    backupList = list
     list.removeAll()
   }
   
   func eraseShapesOfType(_ shape: Shape) {
+    backupList = list
     list.removeAll { thing in
       thing.shape == shape
     }
   }
   
   func drawShape(_ shape: Shape) {
+    backupList = list
     let aThing = Thing(
       id: UUID().uuidString,
       shape: shape,
@@ -26,6 +34,7 @@ class CanvasModel: ObservableObject {
   }
   
   func bringToFront(_ index: Int) {
+    backupList = list
     let thing = list[index]
     list.remove(at: index)
     list.append(thing)

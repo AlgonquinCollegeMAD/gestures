@@ -77,6 +77,11 @@ struct Canvas: View {
         
         ToolbarItemGroup(placement: .topBarTrailing) {
           Button {
+            model.undo()
+          } label: {
+            Image(systemName: "arrow.uturn.backward.circle.fill").foregroundColor(.black)
+          }
+          Button {
             if model.list.count > 0 {
               isPresentingConfirmDelete = true
             }
