@@ -17,6 +17,8 @@
 		105C65E92ADF359D001A0239 /* CanvasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65E82ADF359D001A0239 /* CanvasModel.swift */; };
 		105C65EB2ADF35D1001A0239 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65EA2ADF35D1001A0239 /* Thing.swift */; };
 		105C65ED2ADF361B001A0239 /* ThingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C65EC2ADF361B001A0239 /* ThingView.swift */; };
+		10A96CB92AE2B661004E89BC /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 10A96CB82AE2B661004E89BC /* Liquid */; };
+		10A96CBB2AE2B6EC004E89BC /* LiquidShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A96CBA2AE2B6EC004E89BC /* LiquidShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		105C65E82ADF359D001A0239 /* CanvasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasModel.swift; sourceTree = "<group>"; };
 		105C65EA2ADF35D1001A0239 /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		105C65EC2ADF361B001A0239 /* ThingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingView.swift; sourceTree = "<group>"; };
+		10A96CBA2AE2B6EC004E89BC /* LiquidShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A96CB92AE2B661004E89BC /* Liquid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +109,7 @@
 				105C65BF2ADF0823001A0239 /* Canvas.swift */,
 				105C65E82ADF359D001A0239 /* CanvasModel.swift */,
 				105C65EA2ADF35D1001A0239 /* Thing.swift */,
+				10A96CBA2AE2B6EC004E89BC /* LiquidShape.swift */,
 				105C65EC2ADF361B001A0239 /* ThingView.swift */,
 				105C65C12ADF0824001A0239 /* Assets.xcassets */,
 				105C65C32ADF0824001A0239 /* Gestures.entitlements */,
@@ -154,6 +159,9 @@
 			dependencies = (
 			);
 			name = Gestures;
+			packageProductDependencies = (
+				10A96CB82AE2B661004E89BC /* Liquid */,
+			);
 			productName = Gestures;
 			productReference = 105C65BA2ADF0823001A0239 /* Gestures.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 105C65B12ADF0823001A0239;
+			packageReferences = (
+				10A96CB72AE2B660004E89BC /* XCRemoteSwiftPackageReference "liquid" */,
+			);
 			productRefGroup = 105C65BB2ADF0823001A0239 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +284,7 @@
 				105C65BE2ADF0823001A0239 /* GesturesApp.swift in Sources */,
 				105C65ED2ADF361B001A0239 /* ThingView.swift in Sources */,
 				105C65E92ADF359D001A0239 /* CanvasModel.swift in Sources */,
+				10A96CBB2AE2B6EC004E89BC /* LiquidShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10A96CB72AE2B660004E89BC /* XCRemoteSwiftPackageReference "liquid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maustinstar/liquid";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10A96CB82AE2B661004E89BC /* Liquid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10A96CB72AE2B660004E89BC /* XCRemoteSwiftPackageReference "liquid" */;
+			productName = Liquid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 105C65B22ADF0823001A0239 /* Project object */;
 }

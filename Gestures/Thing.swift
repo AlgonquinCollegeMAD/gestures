@@ -11,6 +11,7 @@ enum Shape: Equatable {
       return false
     }
   }
+  
   case circle(Circle = Circle())
   case roundedRect(RoundedRectangle = RoundedRectangle(cornerSize: CGSize(width: 20, height: 20)))
 }
