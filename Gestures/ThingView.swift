@@ -16,6 +16,11 @@ struct ThingView: View {
         .foregroundColor(thing.color)
         .frame(width: thing.size, height: thing.size)
         .position(thing.position)
+    case .liquid(let liquid):
+      liquid
+        .foregroundColor(thing.color)
+        .frame(width: thing.size, height: thing.size)
+        .position(thing.position)
     }
   }
 }
