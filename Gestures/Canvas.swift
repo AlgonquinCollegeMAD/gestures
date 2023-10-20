@@ -38,6 +38,9 @@ struct Canvas: View {
                 Button("Erase all circles", role: .destructive) {
                   model.eraseShapesOfType(.circle())
                 }
+                Button("Erase all liquids", role: .destructive) {
+                  model.eraseShapesOfType(.liquid())
+                }
                 Button("Erase all shapes", role: .destructive) {
                   model.eraseAllShapes()
                 }
@@ -62,6 +65,14 @@ struct Canvas: View {
             Image(systemName: "plus.square.fill")
               .foregroundColor(.green)
           }
+          
+          Button {
+            model.drawShape(.liquid())
+          } label: {
+            Image(systemName: "plus.diamond.fill")
+              .foregroundColor(.green)
+          }
+          
         }
         
         ToolbarItemGroup(placement: .topBarTrailing) {
